@@ -102,6 +102,14 @@ HardwareSerial  Serial(PA_3, PA_2); //Connected to ST-Link
 HardwareSerial  Serial1(PA_10, PA_9);
 #endif
 
+/*
+ * Serial3 used to work in 2016 but was removed for some reason. It's been added back and it works again
+ */
+HardwareSerial Serial3(PA_1, PA_0);
+void serialEvent3() __attribute__((weak));
+void serialEvent3() { }
+
+
 void serialEvent() __attribute__((weak));
 void serialEvent() { }
 #ifdef ENABLE_SERIAL1
@@ -115,6 +123,8 @@ void serialEventRun(void)
 #ifdef ENABLE_SERIAL1
   if (Serial1.available()) serialEvent1();
 #endif
+  // Serial3 had been removed for some reason; it's been put back and it works again.
+  if (Serial3.available()) serialEvent3();
 }
 
 // ----------------------------------------------------------------------------
