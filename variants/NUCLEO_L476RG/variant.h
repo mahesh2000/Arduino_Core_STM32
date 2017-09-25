@@ -171,6 +171,8 @@ enum {
 #ifdef __cplusplus
 extern HardwareSerial Serial;
 extern HardwareSerial Serial1;
+extern HardwareSerial Serial3;
+
 
 // These serial port names are intended to allow libraries and architecture-neutral
 // sketches to automatically default to the correct port name for a particular type
